@@ -43,6 +43,8 @@ app.get("/11", (req,res)=>{
     res.render("Others/11/home")
 })
 
+
+// these routes I have used for CRUD operations 
 // index route for class 11th science books
 app.get("/11/science", async (req,res)=>{
     const science11Books = await Book.find({});
@@ -90,6 +92,7 @@ app.delete("/11/science/:id", async (req,res)=>{
     await Book.findByIdAndDelete(id);
     res.redirect("/11/science")
 })
+// CRUD operations ended
 
 app.get("/11/commerce", async (req,res)=>{
     const commerce11Books = await Book.find({});
