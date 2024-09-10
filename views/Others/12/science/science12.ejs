@@ -1,0 +1,35 @@
+<%- layout('/layouts/boilerplate') %>
+
+<body>
+    <!-- <div id="loader">
+        <h1>ENVIRONMENTS</h1>
+        <h1>EXPERIENCES</h1>
+        <h1>CONTENT</h1>
+    </div> -->
+    <div class="main_upsc">
+        <div class="heading_upsc">
+            <h1>Class 12th Science Books</h1>
+            <!-- <p>The Best Platform for Second Hand Books!!</p> -->
+        </div>
+        <div class="list_of_books">
+           <% for (let b of science12Books) { %>
+            <% if (b.category == "Class 12 Science") { %>
+                <div class="card crdcustom">
+                    <img src="<%= b.coverimage %>" class="card-img-top" style="height: 15rem; width: 20rem;" alt="...">
+                    <div class="card-body">
+                      <h5 class="card-title"><%= b.title %></h5>
+                      <p class="card-text"><%= b.author %></p>
+                      <p class="card-text"><%= b.price %></p>
+                      <p class="card-text"><%= b.description %></p>
+                    </div>
+                    <div class="btns">
+                        <a href="#" class="btn btncustom btn-primary" style="height: 5rem;">Go somewhere</a>
+                        <a href="/11/arts/<%= b._id %>/condition" class="btn btncustom chkcndtn btn-primary" style="height: 5rem;">Go somewhere</a>
+                    </div>
+                </div>
+           <% } %>
+          <%  } %>
+        </div>
+
+    </div>
+</body>

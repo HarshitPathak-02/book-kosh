@@ -1,0 +1,231 @@
+.cntnr {
+    z-index: 10;
+    position: relative;
+}
+
+footer {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid black;
+    align-items: center;
+    margin-top: 1rem;
+    height: 20rem;
+    padding: 5rem;
+    background-color: rgb(202, 211, 211);
+}
+
+.navbar {
+    height: 5rem;
+}
+
+.main_home, .main_class11, .main_class12, .main_upsc {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    /* height: 100vh; */
+}
+
+.heading_home, .heading_class11, .heading_class12, .heading_upsc {
+    background-image: url("https://image.slidesdocs.com/responsive-images/background/rustic-old-paper-and-textured-design-powerpoint-background_fe106b26c6__960_540.jpg");
+    background-size: cover;
+    height: 40rem;
+    background-color: antiquewhite;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.heading_home h1, .heading_class11  h1, .heading_class12 h1, .heading_upsc h1 {
+    font-size: 10rem;
+}
+
+.heading_home p{
+    font-size: 2.3rem;
+}
+
+.category_home {
+    padding: 5rem;
+    height: 80rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6rem;
+    margin-top: 5rem;
+}
+
+.category_class11, .category_class12 {
+    padding: 5rem;
+    height: 45rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6rem;
+    margin-top: 5rem;
+}
+
+.mid_heading_home, .mid_heading_class11, .mid_heading_class12 {
+    border: 1px solid black;
+    margin-top: 5rem;
+    margin-bottom: 1rem;
+}
+
+.row_category_home, .row_category_class11, .row_category_class12 {
+    display: flex;
+    gap: 5rem;
+}
+
+#moving-text {
+    overflow-x: auto;
+    white-space: nowrap;
+}
+
+#moving-text::-webkit-scrollbar {
+    display: none;
+}
+
+.feature {
+    white-space: nowrap;
+    display: inline-block;
+    animation-name: move;
+    animation-duration: 13s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+
+#moving-text h1 {
+    font-size: 7vw;
+    /* background-color: lightblue; */
+    display: inline-block;
+}
+
+#circle_design {
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    display: inline-block;
+    background-color: #FE320A;
+    margin: 1vw 1vw;
+}
+
+@keyframes move {
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(-100%);
+    }
+}
+
+/* #loader{
+    height: 100%;
+    width: 100%;
+    background-color: #000;
+    position: fixed;
+    z-index: 999;
+    top: 0;
+    transition: all ease 0.7s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#loader h1{
+    font-size: 4vw;
+    color: transparent;
+    background: linear-gradient(to right,orange,orangered);
+    -webkit-background-clip: text;
+    position: absolute;
+    opacity: 0;
+    animation-name: load;
+    animation-duration: 1s;
+    animation-delay: 1s;
+    animation-timing-function: linear;
+}
+#loader h1:nth-child(2){
+    animation-delay: 2s;
+}
+#loader h1:nth-child(3){
+    animation-delay: 3s;
+}
+
+@keyframes load {
+    0%{
+        opacity: 0;
+    }
+    10%{
+        opacity: 1;
+    }
+    90%{
+        opacity: 1;
+    }
+    100%{
+        opacity: 0;
+    }
+} */
+
+.list_of_books {
+    padding: 5rem;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* gap: 6rem; */
+    margin-top: 5rem;
+}
+
+.crdcustom {
+    display: flex;
+    flex-direction: row;
+    width: 95%;
+    /* height: 70rem; */
+    margin: 1rem;
+    padding: 1rem;
+}
+
+.btns {
+    display: flex;
+    flex-direction: column;
+    gap: 5rem;
+}
+
+.btncustom {
+    padding-top: 1.5rem;
+}
+
+.condition {
+    display: flex;
+    justify-content: center;
+    padding: 5rem;
+    background-color: rgb(2, 2, 2);
+    margin: 5rem;
+    /* opacity: 0.5; */
+}
+
+.card {
+    border-radius: 1rem;
+    padding: 0.5rem;
+}
+
+.carousel img {
+    height: 40rem;
+    width: 40rem;
+    /* display: hidden; */
+}
+
+.crdHome {
+    padding: 0.5rem;
+    border-radius: 1rem;
+    border: black 1px solid;
+}
+
+.crdHome img {
+    height: 17rem;
+    width: 17rem;
+}
+
+.field {
+    width: 60rem;
+
+}

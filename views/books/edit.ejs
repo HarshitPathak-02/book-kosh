@@ -1,0 +1,19 @@
+<% layout('/layouts/boilerplate') %>
+<body>
+    <form method="post" action="/11/science/<%= book._id %>?_method=PUT">
+        <input type="text" name="book[title]" value="<%= book.title %>">
+        <br><br> 
+        <textarea name="book[description]" value="<%= book.description %>" rows="10" cols="40"></textarea>
+        <br><br>          
+        <input type="text" name="book[image]" value="<%= book.image %>">
+        <br><br>
+        <input type="number" name="book[price]" value="<%= book.price %>">
+        <br><br>
+        <input type="text" name="book[author]" value="<%= book.author %>">
+        <br><br>
+        <input type="text" name="book[category]" value="<%= book.category %>">
+        <br><br>
+
+        <button type="submit">Save</button>
+    </form>
+</body>

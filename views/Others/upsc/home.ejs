@@ -1,0 +1,89 @@
+<%- layout('/layouts/boilerplate') %>
+
+<body>
+    <!-- <div id="loader">
+        <h1>ENVIRONMENTS</h1>
+        <h1>EXPERIENCES</h1>
+        <h1>CONTENT</h1>
+    </div> -->
+    <div class="main_upsc">
+        <div class="heading_upsc">
+            <h1>UPSC Books</h1>
+            <!-- <p>The Best Platform for Second Hand Books!!</p> -->
+        </div>
+        <!-- <div class="mid_heading_class12">
+            <div id="moving-text">
+                <div class="feature">
+                    <h1>All CATEGORIES</h1>
+                    <div id="circle_design"></div>
+                    <h1>BEST QUALITY</h1>
+                    <div id="circle_design"></div>
+                    <h1>LOWEST PRICE</h1>
+                    <div id="circle_design"></div>
+                </div>
+                <div class="feature">
+                    <h1>All CATEGORIES</h1>
+                    <div id="circle_design"></div>
+                    <h1>BEST QUALITY</h1>
+                    <div id="circle_design"></div>
+                    <h1>LOWEST PRICE</h1>
+                    <div id="circle_design"></div>
+                </div>
+                <div class="feature">
+                    <h1>All CATEGORIES</h1>
+                    <div id="circle_design"></div>
+                    <h1>BEST QUALITY</h1>
+                    <div id="circle_design"></div>
+                    <h1>LOWEST PRICE</h1>
+                    <div id="circle_design"></div>
+                </div>
+            </div>
+        </div> -->
+        <!-- <div class="category_class12">
+            <div class="row_category_class12">
+                <div class="card" style="width: 18rem;">
+                    <img src="https://mycareersview.com/afile/mcv13854_StatePublicServiceCommission.jpg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                      <h5 class="card-title">Card title</h5>
+                      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                      <a href="/12/science" class="btn btn-primary">Go somewhere</a>
+                    </div>
+                </div>
+                <div class="card" style="width: 18rem;">
+                    <img src="https://mycareersview.com/afile/mcv13854_StatePublicServiceCommission.jpg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                      <h5 class="card-title">Card title</h5>
+                      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                      <a href="/12/arts" class="btn btn-primary">Go somewhere</a>
+                    </div>
+                </div>
+                <div class="card" style="width: 18rem;">
+                    <img src="https://mycareersview.com/afile/mcv13854_StatePublicServiceCommission.jpg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                      <h5 class="card-title">Card title</h5>
+                      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                      <a href="/12/commerce" class="btn btn-primary">Go somewhere</a>
+                    </div>
+                </div>
+            </div>
+        </div> -->
+
+        <div class="list_of_books">
+           <% for (let b of upscBooks) { %>
+                <!-- <li><%= b.title %></li> -->
+                <div class="card crdcustom">
+                    <img src="<%= b.coverimage %>" class="card-img-top" style="height: 15rem; width: 20rem;" alt="...">
+                    <div class="card-body">
+                      <h5 class="card-title">Card title</h5>
+                      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    </div>
+                    <div class="btns">
+                        <a href="#" class="btn btncustom btn-primary" style="height: 5rem;">Go somewhere</a>
+                        <a href="#" class="btn btncustom btn-primary" style="height: 5rem;">Go somewhere</a>
+                    </div>
+                </div>
+          <%  } %>
+        </div>
+
+    </div>
+</body>
