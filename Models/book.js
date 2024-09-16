@@ -1,5 +1,6 @@
 const mongoose = require("mongoose");
 const Schema  = mongoose.Schema;
+const Review = require("./review")
 
 const bookSchema = new Schema({
     title: String,
@@ -31,7 +32,19 @@ const bookSchema = new Schema({
     },
     author: String,
     category: String,
+    reviews: [
+        {
+            type: Schema.Types.ObjectId,
+            ref: "Review",
+        },
+    ],
 });
+
+bookSchema.post("findOneAndDelete", async (book)=>{
+    if (book) {
+        await Review.deleteMany({_id : {$in: book.reviews}})
+    }
+})
 
 const Book = mongoose.model("Book", bookSchema);
 

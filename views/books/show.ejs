@@ -1,7 +1,9 @@
 <% layout("/layouts/boilerplate") %>
 <body>
     <div class="book_details">
-        <img src="<%= book.image %>" alt="ggh" style="height: 40rem; width: 40rem;">
+        <img src="<%= book.coverimage %>" alt="ggh" style="height: 40rem; width: 40rem;">
+        <img src="<%= book.indeximage %>" alt="ggh" style="height: 40rem; width: 40rem;">
+        <img src="<%= book.insideimage %>" alt="ggh" style="height: 40rem; width: 40rem;">
         <h2><%= book.title %></h2>
         <h4><%= book.author %></h4>
         <p><%= book.description %></p>

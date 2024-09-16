@@ -1,61 +1,67 @@
 <% layout("/layouts/boilerplate") %>
 <body>
-    <!-- <form action="/11/science" method="post">
-        <input type="text" name="book[title]" placeholder="Enter the title" required>
-        <br><br> 
-        <textarea name="book[description]" placeholder="Enter the description" rows="10" cols="40"></textarea>
-        <br><br>          
-        <input type="text" name="book[coverimage]" placeholder="Enter the image url" required>
-        <br><br>
-        <input type="text" name="book[indeximage]" placeholder="Enter the image url" required>
-        <br><br>
-        <input type="text" name="book[insideimage]" placeholder="Enter the image url" required>
-        <br><br>
-        <input type="number" name="book[price]" placeholder="Enter the price" required>
-        <br><br>
-        <input type="text" name="book[author]" placeholder="Enter the author">
-        <br><br>
-        <input type="text" name="book[category]" placeholder="Enter the category" required>
-        <br><br>
-
-        <button type="submit">Save</button>
-    </form> -->
     <div class="new_form" style="padding: 2rem;">
-        <form class="row g-3 justify-content-center" >
+        <form class="row g-3 justify-content-center needs-validation" novalidate action="/11/science" method="post">
             <div class="field">
-              <label for="inputEmail4" class="form-label">Email</label>
-              <input type="email" class="form-control" id="inputEmail4" name="book[title]">
+              <label for="title" class="form-label">Title</label>
+              <input type="text" class="form-control" id="title" name="book[title]" placeholder="Enter title of the book" required>
+              <div class="valid-feedback">Title Looks Good!</div>
+              <div class="invalid-feedback">Enter Valid Title!</div>
             </div>
             <div class="field">
-                <label for="inputEmail4" class="form-label">Email</label>
-                <input type="email" class="form-control" id="inputEmail4" name="book[description]">
+                <label for="description" class="form-label">Description</label>
+                <br>
+                <textarea name="book[description]" id="description" style="height: 5rem; width: 59rem; border-radius: 0.5rem; border: #dee2e6 solid 1px;" placeholder="Add some description about the book"></textarea>
+                <!-- <div class="valid-feedback">Title Looks Good!</div> -->
+                <div class="invalid-feedback">Enter Valid Title!</div>
             </div>
             <div class="field">
-                <label for="inputEmail4" class="form-label">Email</label>
-                <input type="email" class="form-control" id="inputEmail4" name="book[coverimage]">
+                <label for="coverimage" class="form-label">Cover Image</label>
+                <input type="text" class="form-control" id="coverimage" name="book[coverimage]" placeholder="Enter cover image url of the book" required>
+                <div class="valid-feedback">Title Looks Good!</div>
+                <div class="invalid-feedback">Enter Valid Title!</div>
             </div>
             <div class="field">
-                <label for="inputEmail4" class="form-label">Email</label>
-                <input type="email" class="form-control" id="inputEmail4" name="book[indeximage]">
+                <label for="indeximage" class="form-label">Index Image</label>
+                <input type="text" class="form-control" id="indeximage" name="book[indeximage]" placeholder="Enter index image url of the book" required>
+                <div class="valid-feedback">Title Looks Good!</div>
+                <div class="invalid-feedback">Enter Valid Title!</div>
             </div>
             <div class="field">
-                <label for="inputEmail4" class="form-label">Email</label>
-                <input type="email" class="form-control" id="inputEmail4" name="book[insideimage]">
+                <label for="insideimage" class="form-label">Inside Image</label>
+                <input type="text" class="form-control" id="insideimage" name="book[insideimage]" placeholder="Enter inside image url of the book" required>
+                <div class="valid-feedback">Title Looks Good!</div>
+                <div class="invalid-feedback">Enter Valid Title!</div>
             </div>
             <div class="field">
-                <label for="inputEmail4" class="form-label">Email</label>
-                <input type="email" class="form-control" id="inputEmail4" name="book[price]">
+                <label for="price" class="form-label">Price</label>
+                <input type="text" class="form-control" id="price" name="book[price]" placeholder="Enter the price of the book" required>
+                <div class="valid-feedback">Title Looks Good!</div>
+                <div class="invalid-feedback">Enter Valid Title!</div>
             </div>
             <div class="field">
-                <label for="inputEmail4" class="form-label">Email</label>
-                <input type="email" class="form-control" id="inputEmail4" name="book[author]">
+                <label for="author" class="form-label">Author</label>
+                <input type="text" class="form-control" id="author" name="book[author]" placeholder="Enter author's name of the book">
+                <!-- <div class="valid-feedback">Title Looks Good!</div> -->
+                <div class="invalid-feedback">Enter Valid Title!</div>
             </div>
             <div class="field">
-                <label for="inputEmail4" class="form-label">Email</label>
-                <input type="email" class="form-control" id="inputEmail4" name="book[category]">
+                <label for="category" class="form-label">Category</label>
+                <select class="form-select" aria-label="category select" name="book[category]" required>
+                    <div class="valid-feedback">Title Looks Good!</div>
+                    <div class="invalid-feedback">Enter Valid Title!</div>
+                    <option selected>Choose category</option>
+                    <option value="Class 11 Science">Class 11 Science</option>
+                    <option value="Class 11 Arts">Class 11 Arts</option>
+                    <option value="Class 11 Commerce">Class 11 Commerce</option>
+                    <option value="Class 12 Science">Class 12 Science</option>
+                    <option value="Class 12 Commerce">Class 12 Commerce</option>
+                    <option value="Class 12 Arts">Class 12 Arts</option>
+                    <option value="upsc">UPSC</option>
+                </select>
             </div>
             <div class="form_btn" style="margin-left: 32rem;">
-              <button type="submit" class="btn btn-primary">Sign in</button>
+              <button type="submit" class="btn btn-primary">Add Book</button>
             </div>
         </form>
     </div>
