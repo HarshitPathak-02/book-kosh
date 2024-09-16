@@ -70,18 +70,21 @@
 
         <div class="list_of_books">
            <% for (let b of upscBooks) { %>
-                <!-- <li><%= b.title %></li> -->
+            <% if (b.category == "UPSC") { %>
                 <div class="card crdcustom">
                     <img src="<%= b.coverimage %>" class="card-img-top" style="height: 15rem; width: 20rem;" alt="...">
                     <div class="card-body">
-                      <h5 class="card-title">Card title</h5>
-                      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                      <h5 class="card-title"><%= b.title %></h5>
+                      <p class="card-text"><%= b.author %></p>
+                      <p class="card-text"><%= b.price %></p>
+                      <p class="card-text"><%= b.description %></p>
                     </div>
                     <div class="btns">
                         <a href="#" class="btn btncustom btn-primary" style="height: 5rem;">Buy Book</a>
-                        <a href="/upsc/<%= b._id %>/condition" class="btn btncustom btn-primary" style="height: 5rem;">Check Condition</a>
+                        <a href="/upsc/<%= b._id %>/condition" class="btn btncustom chkcndtn btn-primary" style="height: 5rem;">Check Condition</a>
                     </div>
                 </div>
+            <% } %>
           <%  } %>
         </div>
 

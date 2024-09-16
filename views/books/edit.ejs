@@ -1,23 +1,7 @@
 <% layout('/layouts/boilerplate') %>
 <body>
-    <!-- <form method="post" action="/11/science/<%= book._id %>?_method=PUT">
-        <input type="text" name="book[title]" value="<%= book.title %>">
-        <br><br> 
-        <textarea name="book[description]" value="<%= book.description %>" rows="10" cols="40"></textarea>
-        <br><br>          
-        <input type="text" name="book[image]" value="<%= book.image %>">
-        <br><br>
-        <input type="number" name="book[price]" value="<%= book.price %>">
-        <br><br>
-        <input type="text" name="book[author]" value="<%= book.author %>">
-        <br><br>
-        <input type="text" name="book[category]" value="<%= book.category %>">
-        <br><br>
-
-        <button type="submit">Save</button>
-    </form> -->
-    <div class="new_form" style="padding: 2rem;"></div>
-        <form class="row g-3 justify-content-center needs-validation" novalidate action="/11/science/<%= book._id %>?_method=PUT" method="post">
+    <div class="new_form">
+        <form class="edit_form needs-validation" novalidate action="/books/<%= book._id %>?_method=PUT" method="post">
             <div class="field">
               <label for="title" class="form-label">Title</label>
               <input type="text" class="form-control" id="title" name="book[title]" placeholder="Enter title of the book" value="<%= book.title %>" required>
@@ -63,17 +47,17 @@
             </div>
             <div class="field">
                 <label for="category" class="form-label">Category</label>
-                <select class="form-select" aria-label="category select" name="category" required>
+                <select class="form-select" aria-label="category select" name="book[category]" required>
                     <div class="valid-feedback">Title Looks Good!</div>
-              <div class="invalid-feedback">Enter Valid Title!</div>
+                    <div class="invalid-feedback">Enter Valid Title!</div>
                     <option selected>Choose category</option>
-                    <option value="class11sci">Class 11 Science</option>
-                    <option value="class11arts">Class 11 Arts</option>
-                    <option value="class11com">Class 11 Commerce</option>
-                    <option value="class12sci">Class 12 Science</option>
-                    <option value="class12com">Class 12 Commerce</option>
-                    <option value="class12arts">Class 12 Arts</option>
-                    <option value="upsc">UPSC</option>
+                    <option value="Class 11 Science">Class 11 Science</option>
+                    <option value="Class 11 Arts">Class 11 Arts</option>
+                    <option value="Class 11 Commerce">Class 11 Commerce</option>
+                    <option value="Class 12 Science">Class 12 Science</option>
+                    <option value="Class 12 Commerce">Class 12 Commerce</option>
+                    <option value="Class 12 Arts">Class 12 Arts</option>
+                    <option value="UPSC">UPSC</option>
                 </select>
             </div>
             <div class="form_btn" style="margin-left: 32rem;">

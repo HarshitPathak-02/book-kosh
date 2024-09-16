@@ -1,0 +1,72 @@
+<% layout("/layouts/boilerplate") %>
+      
+<div class="condition">
+  <div id="carouselExampleDark" class="carousel carousel-dark slide" data-bs-ride="carousel">
+    <div class="carousel-indicators">
+      <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+      <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1" aria-label="Slide 2"></button>
+      <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2" aria-label="Slide 3"></button>
+    </div>
+    <div class="carousel-inner">
+      <div class="carousel-item active" data-bs-interval="10000">
+        <img src="<%= book.coverimage %>" class="d-block w-100" alt="...">
+        <div class="carousel-caption d-none d-md-block">
+          <h5>Cover Page</h5>
+        </div>
+      </div>
+      <div class="carousel-item" data-bs-interval="2000">
+        <img src="<%= book.indeximage %>" class="d-block w-100" alt="...">
+        <div class="carousel-caption d-none d-md-block">
+          <h5>Index Page</h5>
+          <p>This is the picture of index page</p>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <img src="<%= book.insideimage %>" class="d-block w-100" alt="...">
+        <div class="carousel-caption d-none d-md-block">
+          <h5>Inside Page</h5>
+          <p>Here is a glance of inside condition</p>
+        </div>
+      </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+  <div class="dlt" style="align-self: center;">
+    <form action="/11/science/<%= book._id %>?_method=DELETE" method="post">
+      <button type="submit" class="btn btn-danger">Delete</button>
+    </form>
+  </div>
+  <div class="all_reviews" style="align-self: center;">
+    <h4>Reviews</h4>
+    <% for (let review of book.reviews) { %>
+      <p><%= review.comment %>, <%= review.rating %>, <%= review._id %></p>
+      <form  method="post" action="/11/science/<%= book._id %>/condition/reviews/<%= review._id %>?_method=DELETE" >
+        <button type="submit" class="btn btn-dark">Delete</button>
+      </form>
+    <% } %>
+  </div>
+  <hr style="width: 40rem; align-self: center;">
+  <div class="review_form">
+    <h3>Give a Review</h3>
+    <form class="rev_form needs-validation" action="/11/science/<%= book._id %>/condition/reviews" method="post" novalidate>
+      <div class="rating">
+        <label for="rating" class="form-label">Rating</label>
+        <input type="range" class="form-range" min="1" max="5" id="rating" name="review[rating]">
+      </div>
+      <div class="comment">
+        <label for="comment" class="form-label">Comment</label>
+        <textarea name="review[comment]" id="comment" class="form-control" required></textarea>
+        <div class="invalid-feedback">Enter the valid comment</div>
+        <br>
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </div>
+    </form>
+  </div>  
+</div>

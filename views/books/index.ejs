@@ -5,13 +5,13 @@
         <p>
             <ul>
                 <% for(let book of allBooks) { %>
-                    <a href="/11/science/<%= book._id %>">
+                    <a href="/books/<%= book._id %>">
                         <li><%= book.title %></a></li>
                     </a>
                <% } %>
             </ul>
         </p>
-        <form method="get" action="/book/new">
+        <form method="get" action="/books/new">
             <button type="submit">Add New Book</button>
         </form>
     </div>

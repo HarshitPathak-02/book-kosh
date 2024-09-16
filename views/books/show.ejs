@@ -9,8 +9,8 @@
         <p><%= book.description %></p>
         <p><%= book.price.toLocaleString("en-IN") %></p>   <!-- here $#8377 can be used for using rupees sign and toLocaleString("en-IN") is used for getting commas in price as per Indian system-->
         <p><%= book.category %></p>
-        <a href="/11/science/<%= book._id %>/edit">Update</a>
-        <form action="/11/science/<%= book._id %>?_method=DELETE" method="post">
+        <a href="/books/<%= book._id %>/edit">Update</a>
+        <form action="/books/<%= book._id %>?_method=DELETE" method="post">
             <button type="submit">Delete</button>
         </form>
     </div>

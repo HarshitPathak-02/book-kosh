@@ -1,7 +1,7 @@
 <% layout("/layouts/boilerplate") %>
 <body>
     <div class="new_form" style="padding: 2rem;">
-        <form class="row g-3 justify-content-center needs-validation" novalidate action="/11/science" method="post">
+        <form class="row g-3 justify-content-center needs-validation" novalidate action="/books" method="post">
             <div class="field">
               <label for="title" class="form-label">Title</label>
               <input type="text" class="form-control" id="title" name="book[title]" placeholder="Enter title of the book" required>
@@ -57,7 +57,7 @@
                     <option value="Class 12 Science">Class 12 Science</option>
                     <option value="Class 12 Commerce">Class 12 Commerce</option>
                     <option value="Class 12 Arts">Class 12 Arts</option>
-                    <option value="upsc">UPSC</option>
+                    <option value="UPSC">UPSC</option>
                 </select>
             </div>
             <div class="form_btn" style="margin-left: 32rem;">
