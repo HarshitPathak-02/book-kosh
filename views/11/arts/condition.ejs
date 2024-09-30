@@ -38,6 +38,9 @@
       <span class="visually-hidden">Next</span>
     </button>
   </div>
+  <div class="owner" style="text-align: center;">
+    <h3><%= book.owner.username %></h3>
+  </div>
   <div class="dlt" style="align-self: center;">
     <form action="/11/arts/<%= book._id %>?_method=DELETE" method="post">
       <button type="submit" class="btn btn-danger">Delete</button>

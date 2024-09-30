@@ -1,6 +1,6 @@
 <% layout('/layouts/boilerplate') %>
 <body>
-    <div class="new_form">
+    <div class="form_div">
         <form class="edit_form needs-validation" novalidate action="/books/<%= book._id %>?_method=PUT" method="post">
             <div class="field">
               <label for="title" class="form-label">Title</label>
@@ -60,7 +60,7 @@
                     <option value="UPSC">UPSC</option>
                 </select>
             </div>
-            <div class="form_btn" style="margin-left: 32rem;">
+            <div class="form_btn">
               <button type="submit" class="btn btn-primary">Update Book</button>
             </div>
         </form>

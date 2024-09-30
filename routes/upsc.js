@@ -8,11 +8,11 @@ const Book = require("../Models/book")
 
 router.get("/upsc", wrapAsync(async (req,res)=>{
     const upscBooks = await Book.find({});
-    res.render("Others/upsc/home", {upscBooks})
+    res.render("upsc/home", {upscBooks})
 }))
 
 router.get("/upsc/:id/condition", wrapAsync(async (req,res)=>{
     let {id} = req.params;
-    const book = await Book.findById(id).populate("reviews");
-    res.render("Others/upsc/condition.ejs",{book})
+    const book = await Book.findById(id).populate("reviews").populate("owner");
+    res.render("upsc/condition.ejs",{book})
 }))
