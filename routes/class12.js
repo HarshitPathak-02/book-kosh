@@ -34,19 +34,25 @@ router.get("/arts", wrapAsync(async (req,res)=>{
 
 router.get("/arts/:id/condition", wrapAsync(async (req,res)=>{
     let {id} = req.params;
-    const book = await Book.findById(id).populate("reviews").populate("owner");
+    const book = await Book.findById(id).populate({path:"reviews",populate: {
+        path:"by"
+    }}).populate("owner");
     res.render("12/arts/condition.ejs",{book})
 }))
 
 router.get("/science/:id/condition", wrapAsync(async (req,res)=>{
     let {id} = req.params;
-    const book = await Book.findById(id).populate("reviews").populate("owner");
+    const book = await Book.findById(id).populate({path:"reviews",populate: {
+        path:"by"
+    }}).populate("owner");
     res.render("12/science/condition.ejs",{book})
 }))
 
 router.get("/commerce/:id/condition", wrapAsync(async (req,res)=>{
     let {id} = req.params;
-    const book = await Book.findById(id).populate("reviews").populate("owner");
+    const book = await Book.findById(id).populate({path:"reviews",populate: {
+        path:"by"
+    }}).populate("owner");
     res.render("12/commerce/condition.ejs",{book})
 }))
 

@@ -49,27 +49,29 @@
   <div class="all_reviews" style="align-self: center;">
     <h4>Reviews</h4>
     <% for (let review of book.reviews) { %>
-      <p><%= review.comment %>, <%= review.rating %>, <%= review._id %></p>
+      <p><%= review.by.username %>,<%= review.comment %>, <%= review.rating %>, <%= review._id %></p>
       <form  method="post" action="/11/arts/<%= book._id %>/condition/reviews/<%= review._id %>?_method=DELETE" >
         <button type="submit" class="btn btn-dark">Delete</button>
       </form>
     <% } %>
   </div>
   <hr style="width: 40rem; align-self: center;">
-  <div class="review_form">
-    <h3>Give a Review</h3>
-    <form class="rev_form needs-validation" action="/11/arts/<%= book._id %>/condition/reviews" method="post" novalidate>
-      <div class="rating">
-        <label for="rating" class="form-label">Rating</label>
-        <input type="range" class="form-range" min="1" max="5" id="rating" name="review[rating]">
-      </div>
-      <div class="comment">
-        <label for="comment" class="form-label">Comment</label>
-        <textarea name="review[comment]" id="comment" class="form-control" required></textarea>
-        <div class="invalid-feedback">Enter the valid comment</div>
-        <br>
-        <button type="submit" class="btn btn-primary">Submit</button>
-      </div>
-    </form>
-  </div>  
+  <% if (currUser) { %>
+    <div class="review_form">
+      <h3>Give a Review</h3>
+      <form class="rev_form needs-validation" action="/11/arts/<%= book._id %>/condition/reviews" method="post" novalidate>
+        <div class="rating">
+          <label for="rating" class="form-label">Rating</label>
+          <input type="range" class="form-range" min="1" max="5" id="rating" name="review[rating]">
+        </div>
+        <div class="comment">
+          <label for="comment" class="form-label">Comment</label>
+          <textarea name="review[comment]" id="comment" class="form-control" required></textarea>
+          <div class="invalid-feedback">Enter the valid comment</div>
+          <br>
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
+      </form>
+    </div>
+  <% } %>  
 </div>

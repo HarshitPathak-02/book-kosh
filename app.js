@@ -9,6 +9,7 @@ const class11 = require("./routes/class11.js")
 const reviews = require("./routes/reviews.js")
 const users = require("./routes/users.js")
 const books = require("./routes/books.js")
+const upsc = require("./routes/upsc.js")
 const flash = require("connect-flash")
 const session = require("express-session");
 const passport = require("passport")
@@ -77,6 +78,7 @@ app.use("/12", class12);
 app.use("/books", books);
 app.use("/", reviews);
 app.use("/", users);
+app.use("/upsc", upsc);
 
 
 app.listen(8080, (req,res)=>{

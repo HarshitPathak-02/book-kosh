@@ -1,21 +1,11 @@
 const express = require("express")
 const router = express.Router()
 const wrapAsync = require("../utils/wrapAsync.js")
-const ExpressError = require("../utils/ExpressError.js");
-const {bookSchema, reviewSchema} = require("../Schema.js")
 const Book = require("../Models/book")
 const passport = require("passport");
-const {isLoggedIn} = require("../middleware.js")
+const {isLoggedIn, isOwner, validateBook} = require("../middleware.js")
 
-const validateBook = (req,res,next)=>{
-    let { error } = bookSchema.validate(req.body);
-    if (error){
-        let errmsg = error.details.map((el)=> el.message).join(",");
-        throw new ExpressError(400,errmsg)
-    } else {
-        next();
-    }
-};
+
 
 
 // these routes I have used for CRUD operations 
@@ -65,7 +55,7 @@ router.get("/:id/edit", isLoggedIn, wrapAsync(async (req,res)=>{
 }))
 
 // update route
-router.put("/:id", isLoggedIn, validateBook, wrapAsync(async (req,res)=>{
+router.put("/:id", isLoggedIn, isOwner, validateBook, wrapAsync(async (req,res)=>{
     let {id}= req.params;
     await Book.findByIdAndUpdate(id, {...req.body.book});
     req.flash("success", "Book Details Updated")
@@ -73,7 +63,7 @@ router.put("/:id", isLoggedIn, validateBook, wrapAsync(async (req,res)=>{
 }))
 
 // delete route
-router.delete("/:id", isLoggedIn, wrapAsync(async (req,res)=>{
+router.delete("/:id", isLoggedIn, isOwner, wrapAsync(async (req,res)=>{
     let {id} = req.params;
     await Book.findByIdAndDelete(id);
     req.flash("success", "Book Deleted")

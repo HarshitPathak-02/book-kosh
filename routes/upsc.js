@@ -6,13 +6,15 @@ const {bookSchema, reviewSchema} = require("../Schema.js")
 const Book = require("../Models/book")
 
 
-router.get("/upsc", wrapAsync(async (req,res)=>{
+router.get("/", wrapAsync(async (req,res)=>{
     const upscBooks = await Book.find({});
     res.render("upsc/home", {upscBooks})
 }))
 
-router.get("/upsc/:id/condition", wrapAsync(async (req,res)=>{
+router.get("/:id/condition", wrapAsync(async (req,res)=>{
     let {id} = req.params;
     const book = await Book.findById(id).populate("reviews").populate("owner");
     res.render("upsc/condition.ejs",{book})
 }))
+
+module.exports = router;
