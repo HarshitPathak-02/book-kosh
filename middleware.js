@@ -6,13 +6,13 @@ const Review = require("./Models/review.js");
 
 module.exports.isLoggedIn = (req, res , next)=>{
     if (!req.isAuthenticated()){
-        req.flash("error","You must be logged in to add a book!");
+        req.flash("error","You must be logged in to perform this action!");
         return res.redirect("/")
     }
     next();
 };
 
-module.exports.isOwner = async (req,res,ext)=>{
+module.exports.isOwner = async (req,res,next)=>{
     let {id} = req.params;
     let book = await Book.findById(id);
     if (!book.owner._id.equals(res.locals.currUser._id)) {
@@ -22,7 +22,7 @@ module.exports.isOwner = async (req,res,ext)=>{
     next();
 }
 
-module.exports.isReviewAuthor = async (req,res,ext)=>{
+module.exports.isReviewAuthor = async (req,res,next)=>{
     let {reviewId} = req.params;
     let review = await Review.findById(reviewId);
     if (!review.by._id.equals(res.locals.currUser._id)) {

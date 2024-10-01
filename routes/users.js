@@ -1,45 +1,18 @@
 const express = require("express")
 const router = express.Router({mergeParams:true})
 const wrapAsync = require("../utils/wrapAsync.js")
-const ExpressError = require("../utils/ExpressError.js");
-const User = require("../Models/user.js")
-const passport = require("passport")
+const passport = require("passport");
+const { signup, signupForm, loginForm, login, logout } = require("../controllers/users.js");
 
 
-router.get("/signup", (req,res)=>{
-    res.render("users/signup.ejs")
-})
+router.get("/signup", signupForm )
 
-router.post("/signup", wrapAsync(async(req,res)=>{
-    try {
-        let {username, email, password} = req.body;
-        const newUser = new User({email, username});
-        const registeredUser = await User.register(newUser,password);
-        req.flash("success", "Welcome to BookKosh!!")
-        res.redirect("/login")
-    } catch (e) {
-        req.flash("error", "User already exist!!")
-        res.redirect("/signup")
-    }
-}))
+router.post("/signup", wrapAsync(signup))
 
-router.get("/login", (req,res)=>{
-    res.render("users/login.ejs");
-})
+router.get("/login",loginForm)
 
-router.post("/login", passport.authenticate('local', { failureRedirect: "/login", failureFlash: true }) , async(req,res)=>{
-    req.flash("success", "Heyy Book Lover, Welcome Back !")
-    res.redirect("/")
-})
+router.post("/login", passport.authenticate('local', { failureRedirect: "/login", failureFlash: true }), login)
 
-router.get("/logout",(req,res)=>{
-    req.logout((err)=>{
-        if (err) {
-            return next(err);
-        }
-        req.flash("success","You are logged out!")
-        res.redirect("/")
-    })
-})
+router.get("/logout", logout)
 
 module.exports = router;
