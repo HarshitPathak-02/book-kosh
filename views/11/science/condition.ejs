@@ -9,20 +9,20 @@
     </div>
     <div class="carousel-inner">
       <div class="carousel-item active" data-bs-interval="10000">
-        <img src="<%= book.coverimage %>" class="d-block w-100" alt="...">
+        <img src="<%= book.coverimage.url %>" class="d-block w-100" alt="...">
         <div class="carousel-caption d-none d-md-block">
           <h5>Cover Page</h5>
         </div>
       </div>
       <div class="carousel-item" data-bs-interval="2000">
-        <img src="<%= book.indeximage %>" class="d-block w-100" alt="...">
+        <img src="<%= book.coverimage.url %>" class="d-block w-100" alt="...">
         <div class="carousel-caption d-none d-md-block">
           <h5>Index Page</h5>
           <p>This is the picture of index page</p>
         </div>
       </div>
       <div class="carousel-item">
-        <img src="<%= book.insideimage %>" class="d-block w-100" alt="...">
+        <img src="<%= book.coverimage.url %>" class="d-block w-100" alt="...">
         <div class="carousel-caption d-none d-md-block">
           <h5>Inside Page</h5>
           <p>Here is a glance of inside condition</p>

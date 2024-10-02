@@ -8,28 +8,16 @@ const bookSchema = new Schema({
     description: String,
     price: Number,
     coverimage: {
-        type:String,
-        default: "https://emmasbibliotreasures.com/wp-content/uploads/2023/04/20230405_145554_0000.png?w=1024",
-        set : (v) => 
-            v === ""
-                ? "https://emmasbibliotreasures.com/wp-content/uploads/2023/04/20230405_145554_0000.png?w=1024"
-                : v,
+        url: String,
+        filename: String,
     },
     indeximage: {
-        type:String,
-        default: "https://emmasbibliotreasures.com/wp-content/uploads/2023/04/20230405_145554_0000.png?w=1024",
-        set : (v) => 
-            v === ""
-                ? "https://emmasbibliotreasures.com/wp-content/uploads/2023/04/20230405_145554_0000.png?w=1024"
-                : v,
+        url: String,
+        filename: String,
     },
     insideimage: {
-        type:String,
-        default: "https://emmasbibliotreasures.com/wp-content/uploads/2023/04/20230405_145554_0000.png?w=1024",
-        set : (v) => 
-            v === ""
-                ? "https://emmasbibliotreasures.com/wp-content/uploads/2023/04/20230405_145554_0000.png?w=1024"
-                : v,
+        url: String,
+        filename: String,
     },
     author: String,
     category: String,

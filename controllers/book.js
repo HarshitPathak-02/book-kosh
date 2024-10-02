@@ -12,8 +12,11 @@ module.exports.bookNewForm = (req,res)=>{
 }
 
 module.exports.bookCreate = async (req,res,next)=>{
+    let url = req.file.path;;
+    let filename = req.file.filename;
     const newBook = new Book(req.body.book);
     newBook.owner = req.user._id;
+    newBook.coverimage = {url, filename};
     await newBook.save()
     req.flash("success","new book added")
     // console.log("saved")
@@ -42,7 +45,16 @@ module.exports.bookEditForm = async (req,res)=>{
 
 module.exports.bookUpdate = async (req,res)=>{
     let {id}= req.params;
-    await Book.findByIdAndUpdate(id, {...req.body.book});
+    let book = await Book.findByIdAndUpdate(id, {...req.body.book});
+    
+    if (typeof req.file !== "undefined"){
+        let url = req.file.path;;
+        let filename = req.file.filename;
+
+        book.coverimage = {url, filename};
+        await book.save();
+    }
+
     req.flash("success", "Book Details Updated")
     res.redirect(`/books/${id}`)
 }

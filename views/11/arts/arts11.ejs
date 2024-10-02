@@ -15,7 +15,7 @@
            <% for (let b of arts11Books) { %>
                 <% if (b.category == "Class 11 Arts") { %>
                     <div class="card crdcustom">
-                        <img src="<%= b.coverimage %>" class="card-img-top" style="height: 15rem; width: 20rem;" alt="...">
+                        <img src="<%= b.coverimage.url %>" class="card-img-top" style="height: 15rem; width: 20rem;" alt="...">
                         <div class="card-body">
                           <h5 class="card-title"><%= b.title %></h5>
                           <p class="card-text"><%= b.author %></p>

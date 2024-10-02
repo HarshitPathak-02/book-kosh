@@ -1,3 +1,7 @@
+if (process.env.NODE_ENV != "production"){
+    require('dotenv').config();
+}
+
 const express = require("express")
 const mongoose = require("mongoose")
 const path = require("path");
@@ -12,11 +16,11 @@ const books = require("./routes/books.js")
 const upsc = require("./routes/upsc.js")
 const flash = require("connect-flash")
 const session = require("express-session");
+const MongoStore = require("connect-mongo") 
 const passport = require("passport")
 const LocalStrategy = require("passport-local")
 const User = require("./Models/user.js");
 const wrapAsync = require("./utils/wrapAsync.js");
-
 
 const app = express()
 
@@ -30,7 +34,23 @@ app.engine('ejs', ejsMate);
 app.use(express.static(path.join(__dirname,"public")))
 
 
+const dbUrl = process.env.ATLASDB_URL
+
+
+const store = MongoStore.create ({
+    mongoUrl: dbUrl,
+    crypto: {
+        secret: "lelosecret",
+    },
+    touchAfter: 24 * 60 * 60,
+});
+
+store.on("error", ()=>{
+    console.log("Error in Mongo error", err)
+})
+
 const sessionOptions = {
+    store,
     secret: "lelosecret",
     resave: false,
     saveUninitialized: true,
@@ -61,7 +81,7 @@ main()
     .catch(err => console.log(err));
 
 async function main(){
-    await mongoose.connect('mongodb://127.0.0.1:27017/Bookkosh');
+    await mongoose.connect(dbUrl);
 }
 
 
