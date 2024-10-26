@@ -24,7 +24,6 @@ const wrapAsync = require("./utils/wrapAsync.js");
 
 const app = express()
 
-
 app.set("view engine", "ejs"); //necessary for using ejs templates
 app.set("views", path.join(__dirname, "views"));  //necessary for using ejs templates 0  build connection with views folder
 app.use(express.urlencoded({extended: true}))
@@ -32,7 +31,6 @@ app.use(express.json());
 app.use(methodOverride("_method"));
 app.engine('ejs', ejsMate);
 app.use(express.static(path.join(__dirname,"public")))
-
 
 const dbUrl = process.env.ATLASDB_URL
 
@@ -73,16 +71,15 @@ passport.serializeUser(User.serializeUser())
 passport.deserializeUser(User.deserializeUser())
 
 
-main()
-    .then((res) => {
-        // console.log(res);
-        console.log("Connection successful.");
-    })
-    .catch(err => console.log(err));
-
 async function main(){
     await mongoose.connect(dbUrl);
 }
+
+main()
+    .then((res) => {
+        console.log("Connection successful.");
+    })
+    .catch(err => console.log(err));
 
 
 app.use((req,res,next)=>{
@@ -91,7 +88,6 @@ app.use((req,res,next)=>{
     res.locals.currUser = req.user;
     next();
 })
-
 
 app.use("/11", class11);
 app.use("/12", class12);
@@ -109,6 +105,9 @@ app.get("/", (req,res)=>{
     res.render("home/index")
 })
 
+app.get("/payment", (req,res)=>{
+    res.render("payment/payment.html")
+})
 
 app.all("*", (req,res,next)=>{
     next(new ExpressError(404,"Page Not Found!!"))
