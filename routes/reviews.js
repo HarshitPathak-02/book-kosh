@@ -2,12 +2,15 @@ const express = require("express")
 const router = express.Router({mergeParams:true})
 const wrapAsync = require("../utils/wrapAsync.js")
 const {isLoggedIn,validateReview, isReviewAuthor} = require("../middleware.js")
-const { class11ArtsShowComment, class11ScienceShowComment, class11CommerceShowComment, class12ArtsShowComment, class12ScienceShowComment, class12CommerceShowComment, upscShowComment, class11ArtsDeleteComment, class11ScienceDeleteComment, class11CommerceDeleteComment, class12ScienceDeleteComment, class12ArtsDeleteComment, class12CommerceDeleteComment, upscDeleteComment } = require("../controllers/reviews.js")
+const { class11ArtsShowComment, class11ScienceShowComment, class11CommerceShowComment, class12ArtsShowComment, class12ScienceShowComment, class12CommerceShowComment, upscShowComment, class11ArtsDeleteComment, class11ScienceDeleteComment, class11CommerceDeleteComment, class12ScienceDeleteComment, class12ArtsDeleteComment, class12CommerceDeleteComment, upscDeleteComment, create, index } = require("../controllers/reviews.js")
 
 
 // reviews routes
 // post review
 router.post("/11/science/:id/condition/reviews", isLoggedIn, validateReview, wrapAsync(class11ScienceShowComment))
+
+router.post("/",create);
+router.get("/:bookId",index);
 
 router.post("/11/arts/:id/condition/reviews", validateReview, isLoggedIn, wrapAsync(class11ArtsShowComment))
 

@@ -1,7 +1,7 @@
 const mongoose = require("mongoose")
 const initData = require("./data")
 const Book = require("../Models/book")
-
+require('dotenv').config()
 
 main()
     .then((res) => {
@@ -11,12 +11,12 @@ main()
     .catch(err => console.log(err));
 
 async function main(){
-    await mongoose.connect('mongodb://127.0.0.1:27017/Bookkosh');
+    await mongoose.connect("mongodb+srv://harshitpathakhp567_db_user:i9eh4pBteMrlBnDy@cluster0.tqlxmyw.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0");
 }
 
 const initDB = async () => {
     await Book.deleteMany({});
-    initData.data = initData.data.map((obj) => ({...obj,owner:"66fa050eb4dae3e05a13f994"}))
+    initData.data = initData.data.map((obj) => ({...obj,owner:"68244442f724d233a9a9feb7"}))
     await Book.insertMany(initData.data);
     console.log("data initialized");
 }

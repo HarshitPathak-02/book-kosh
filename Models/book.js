@@ -29,7 +29,8 @@ const bookSchema = new Schema({
     owner: {
         type:Schema.Types.ObjectId,
         ref:"User",
-    }
+    },
+    condition:String
 });
 
 bookSchema.post("findOneAndDelete", async (book)=>{
@@ -37,6 +38,12 @@ bookSchema.post("findOneAndDelete", async (book)=>{
         await Review.deleteMany({_id : {$in: book.reviews}})
     }
 })
+
+// const bookSchema = new Schema({
+//     title:String,
+//     author:String,
+//     image:String
+// })
 
 const Book = mongoose.model("Book", bookSchema);
 

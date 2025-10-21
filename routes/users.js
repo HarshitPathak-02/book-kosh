@@ -1,18 +1,25 @@
-const express = require("express")
-const router = express.Router({mergeParams:true})
-const wrapAsync = require("../utils/wrapAsync.js")
+const express = require("express");
+const router = express.Router({ mergeParams: true });
+const wrapAsync = require("../utils/wrapAsync.js");
 const passport = require("passport");
-const { signup, signupForm, loginForm, login, logout } = require("../controllers/users.js");
+const {
+  signup,
+  signupForm,
+  loginForm,
+  logout,
+  signin,
+} = require("../controllers/users.js");
 
+router.post("/signup", wrapAsync(signup));
 
-router.get("/signup", signupForm )
+router.post("/signin", (req, res, next) => {
+  console.log("signin called");
+  signin(req, res, next);
+});
 
-router.post("/signup", wrapAsync(signup))
-
-router.get("/login",loginForm)
-
-router.post("/login", passport.authenticate('local', { failureRedirect: "/login", failureFlash: true }), login)
-
-router.get("/logout", logout)
+router.post("/logout", (req, res, next) => {
+  console.log("logout called");
+  logout(req, res, next);
+});
 
 module.exports = router;
