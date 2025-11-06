@@ -11,7 +11,7 @@ main()
     .catch(err => console.log(err));
 
 async function main(){
-    await mongoose.connect("mongodb+srv://harshitpathakhp567_db_user:i9eh4pBteMrlBnDy@cluster0.tqlxmyw.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0");
+    await mongoose.connect("");
 }
 
 const initDB = async () => {
