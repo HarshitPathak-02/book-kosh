@@ -20,7 +20,7 @@ const reviewSchema = new Schema<IReview>(
   { timestamps: false }
 );
 
-// ⚙️ Indexes
+// Indexes
 reviewSchema.index({ book: 1 });
 reviewSchema.index({ by: 1 });
 reviewSchema.index({ rating: -1 });

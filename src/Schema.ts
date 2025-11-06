@@ -1,6 +1,6 @@
 import Joi from "joi";
 
-// 🧩 MongoDB ObjectId pattern
+// MongoDB ObjectId pattern
 const objectIdPattern = /^[0-9a-fA-F]{24}$/;
 
 // --- BOOK VALIDATION ---

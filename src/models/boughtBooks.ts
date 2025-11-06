@@ -16,7 +16,7 @@ const boughtBooksSchema = new Schema<IBoughtBook>(
   { timestamps: false }
 );
 
-// ⚙️ Indexes
+// Indexes
 boughtBooksSchema.index({ user: 1 });
 boughtBooksSchema.index({ book: 1 });
 boughtBooksSchema.index({ user: 1, book: 1 }, { unique: true });

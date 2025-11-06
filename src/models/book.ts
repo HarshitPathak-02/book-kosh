@@ -2,7 +2,7 @@ import mongoose, { Document, Schema, Model } from "mongoose";
 import type { ObjectId } from "mongoose";
 import Review from "./review"; // make sure this file is also TS
 
-// ✅ Interface representing a Book document
+// Interface representing a Book document
 export interface IBook extends Document {
   title: string;
   description: string;
@@ -28,7 +28,7 @@ export interface IBook extends Document {
   updatedAt?: Date;
 }
 
-// ✅ Define Schema
+// Define Schema
 const bookSchema = new Schema<IBook>(
   {
     title: { type: String, required: true },
@@ -63,21 +63,21 @@ const bookSchema = new Schema<IBook>(
   { timestamps: true }
 );
 
-// ✅ Indexes for optimization
+// Indexes for optimization
 bookSchema.index({ title: "text", author: "text", category: "text" }); // For text search
 bookSchema.index({ category: 1 }); // For filtering
 bookSchema.index({ owner: 1 }); // For seller-based listing
 bookSchema.index({ price: 1 }); // For sorting by price
 bookSchema.index({ createdAt: -1 }); // For recent books
 
-// ✅ Cascade delete reviews when a book is deleted
+// Cascade delete reviews when a book is deleted
 bookSchema.post("findOneAndDelete", async (book: IBook) => {
   if (book && book.reviews && book.reviews.length > 0) {
     await Review.deleteMany({ _id: { $in: book.reviews } });
   }
 });
 
-// ✅ Safe export to avoid OverwriteModelError
+// Safe export to avoid OverwriteModelError
 const Book: Model<IBook> =
   mongoose.models.Book || mongoose.model<IBook>("Book", bookSchema);
 

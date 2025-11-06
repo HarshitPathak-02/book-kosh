@@ -16,7 +16,7 @@ const favoriteSchema = new Schema<IFavorite>(
   { timestamps: false }
 );
 
-// ⚙️ Indexes
+// Indexes
 favoriteSchema.index({ user: 1 });
 favoriteSchema.index({ book: 1 });
 favoriteSchema.index({ user: 1, book: 1 }, { unique: true });

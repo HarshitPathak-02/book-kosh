@@ -40,7 +40,7 @@ const orderSchema = new Schema<IOrder>(
   { timestamps: false }
 );
 
-// ⚙️ Indexes
+// Indexes
 orderSchema.index({ user: 1 });
 orderSchema.index({ paymentStatus: 1 });
 orderSchema.index({ isPaid: 1 });
